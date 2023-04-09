@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns:th="http:/www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/site.css">
-<!--    <script src="js/custom.js"></script>-->
-    <title>Title</title>
+    <title>Hello user page</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h2>Hello </h2>
 
-    <h3><a href="/helloUser">Hello user</a></h3>
+    Welcome to our site dear <b><span sec:authentication="name">Username</span></b><br>
+<!--    <div th:text="${#authentication.name}">Username</div><br>-->
 
     <div sec:authorize="isAuthenticated()">
         Text visible only to authenticated users.

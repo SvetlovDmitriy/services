@@ -1,0 +1,17 @@
+server:
+  port: 5000
+---
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 5cf7941e4240f37e22a5
+            clientSecret: 524608c256e1c3ed6e80747cafb4bf08af4e3793
+            scope:
+              - user:email
+              - read:user
+        provider:
+          github:
+            user-name-attribute: login
