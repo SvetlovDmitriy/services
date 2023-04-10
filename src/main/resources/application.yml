@@ -1,7 +1,14 @@
 server:
   port: 5000
----
 spring:
+  profiles:
+    active: @spring.profiles.active@
+---
+var: dev
+spring:
+  config:
+    activate:
+      on-profile: dev
   security:
     oauth2:
       client:
@@ -15,3 +22,23 @@ spring:
         provider:
           github:
             user-name-attribute: login
+---
+var: prod
+spring:
+  config:
+    activate:
+      on-profile: prod
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 7b93bdbd65644f9f4ab5
+            clientSecret: e5217cf533e8a1b0e4fc541971beae70be849313
+            scope:
+              - user:email
+              - read:user
+        provider:
+          github:
+            user-name-attribute: login
+---
